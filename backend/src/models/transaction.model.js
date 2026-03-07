@@ -10,7 +10,7 @@ const transactionSchema = new mongoose.Schema(
     },
 
     merchantId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: String,
       ref: "Merchant",
       required: true,
       index: true,
@@ -28,7 +28,7 @@ const transactionSchema = new mongoose.Schema(
 
     status: {
       type: String,
-      enum: ["Successful", "Failed", "Pending", "Refunded"],
+      enum: ["success", "failed", "pending", "refunded"],
       required: true,
       index: true,
     },
