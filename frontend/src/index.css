@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@layer components {
+
+  .text-page-title {
+    @apply text-3xl font-semibold text-slate-900;
+  }
+
+  .text-section-title {
+    @apply text-xl font-semibold text-slate-900;
+  }
+
+  .text-card-title {
+    @apply text-lg font-semibold text-slate-800;
+  }
+
+  .text-body {
+    @apply text-sm text-slate-600;
+  }
+
+  .text-muted {
+    @apply text-xs text-slate-500;
+  }
+
+}
+
+@layer base {
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+
+}
