@@ -1,5 +1,12 @@
+export interface Merchant {
+  id: string
+  email: string
+  name: string
+}
+
 export interface AuthContextType {
   token: string | null
-  login: (token: string) => void
+  merchant: Merchant | null
+  login: (token: string, merchant: Merchant) => void
   logout: () => void
 }
