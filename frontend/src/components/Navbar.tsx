@@ -9,7 +9,6 @@ const Navbar = () => {
     <header className="border-b border-border bg-white shadow-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
 
-        {/* Logo / Title */}
         <h1
           onClick={() => navigate("/transactions")}
           className="
@@ -25,17 +24,14 @@ const Navbar = () => {
           Merchant Portal
         </h1>
 
-        {/* Right Section */}
         <div className="flex items-center gap-4 sm:gap-6">
 
-          {/* Merchant Name */}
           {merchant && (
             <span className="hidden sm:inline text-sm sm:text-base text-gray-600 font-medium">
               Welcome, {merchant.name}
             </span>
           )}
 
-          {/* profile Button */}
           <button
           onClick={()=>navigate("/login")}
               className="w-9 h-9
