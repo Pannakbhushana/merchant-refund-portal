@@ -1,15 +1,9 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
-  };
-
-  const isTransactionsPage = location.pathname.startsWith("/transactions");
+  const { merchant } = useAuth();
 
   return (
     <header className="border-b border-border bg-white shadow-sm">
@@ -31,28 +25,31 @@ const Navbar = () => {
           Merchant Portal
         </h1>
 
-        {/* Navigation */}
-        <div className="flex items-center gap-3 sm:gap-6">
+        {/* Right Section */}
+        <div className="flex items-center gap-4 sm:gap-6">
 
+          {/* Merchant Name */}
+          {merchant && (
+            <span className="hidden sm:inline text-sm sm:text-base text-gray-600 font-medium">
+              Welcome, {merchant.name}
+            </span>
+          )}
+
+          {/* profile Button */}
           <button
-            onClick={handleLogout}
-            className="
-              px-3 sm:px-4 py-2
-              text-sm sm:text-base
-              font-medium
-              text-white
-              bg-red-500
-              cursor-pointer
-              rounded-md
-              shadow-sm
-              transition
-              hover:bg-red-600
-              hover:shadow-md
-              active:scale-95
-            "
-          >
-            Logout
-          </button>
+          onClick={()=>navigate("/login")}
+              className="w-9 h-9
+                flex items-center justify-center
+                rounded-full
+                bg-gray-100
+                text-gray-700
+                cursor-pointer
+                font-semibold
+                hover:bg-gray-200
+                transition"
+            >
+              {merchant?.name?.charAt(0)}
+            </button>
 
         </div>
       </div>
