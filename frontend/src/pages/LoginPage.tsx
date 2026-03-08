@@ -9,8 +9,8 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const { login, logout } = useAuth();
 
-  const [email, setEmail] = useState("merchant2@test.com");
-  const [password, setPassword] = useState("Test@1234");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
